@@ -1,0 +1,194 @@
+/* Reset básico e fontes */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+  padding-bottom: 80px; /* Adicionado para espaço do botão fixo */
+}
+
+/* Container principal */
+.todo-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+h1 {
+  text-align: center;
+  color: #5d5fef;
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+/* Área de input */
+.input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+#taskInput {
+  flex: 1;
+  padding: 12px 15px;
+  border: 2px solid #e1e5ee;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+#taskInput:focus {
+  outline: none;
+  border-color: #5d5fef;
+}
+
+#addTaskBtn {
+  background-color: #5d5fef;
+  color: white;
+  border: none;
+  padding: 0 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+#addTaskBtn:hover {
+  background-color: #4a4cbf;
+}
+
+/* Lista de tarefas */
+#taskList {
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #f9fafc;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.task-checkbox {
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.task-text {
+  flex: 1;
+  word-break: break-word;
+}
+
+.completed .task-text {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.delete-btn {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 15px;
+  transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+  background-color: #ff5252;
+}
+
+/* Botão de reset global */
+.reset-global-container {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+}
+
+#resetTasksBtn {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: auto; /* Tamanho automático baseado no conteúdo */
+  min-width: 150px; /* Largura mínima consistente */
+}
+
+#resetTasksBtn:hover {
+  background-color: #ff5252;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#resetTasksBtn:active {
+  transform: translateY(0);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .todo-container {
+    padding: 20px;
+  }
+
+  .input-container {
+    flex-direction: column;
+  }
+
+  #addTaskBtn {
+    padding: 12px;
+  }
+
+  body {
+    padding-bottom: 70px; /* Ajuste para mobile */
+  }
+
+  .reset-global-container {
+    bottom: 20px;
+  }
+
+  #resetTasksBtn {
+    padding: 12px 20px; /* Mesmo padding do botão Adicionar */
+    width: auto; /* Mantém o tamanho proporcional */
+  }
+}
