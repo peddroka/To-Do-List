@@ -3,9 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="img/business-to-do-list-flat-icon-modern-style-vector-Photoroom.png"
+    />
     <meta
       name="description"
-      content="Uma simples aplicação de lista de tarefas"
+      content="Uma simples aplicação de lista de tarefas com suporte a múltiplas abas"
     />
     <title>To-Do List Simples</title>
     <link rel="stylesheet" href="styles.css" />
@@ -17,6 +22,11 @@
   <body>
     <main class="todo-container">
       <h1>Minha To-Do List</h1>
+
+      <!-- Lista de abas -->
+      <ul id="tabsList" class="tabs-list" aria-label="Pastas de tarefas"></ul>
+
+      <!-- Área de input -->
       <div class="input-container">
         <input
           type="text"
@@ -25,14 +35,55 @@
           aria-label="Campo para adicionar nova tarefa"
         />
         <button id="addTaskBtn" aria-label="Adicionar tarefa">Adicionar</button>
+        <button id="openCreateTabBtn" aria-label="Criar nova aba">
+          Criar aba
+        </button>
       </div>
+
+      <!-- Lista de tarefas -->
       <ul id="taskList" aria-live="polite"></ul>
     </main>
+
+    <!-- Botão de reset global -->
     <div class="reset-global-container">
       <button id="resetTasksBtn" aria-label="Limpar todas as tarefas">
         Limpar Tudo
       </button>
     </div>
+
+    <!-- Modal de criação de aba -->
+    <div
+      id="createTabModal"
+      class="modal hidden"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="modal-content">
+        <h2>Nova aba</h2>
+        <input
+          type="text"
+          id="newTabNameInput"
+          placeholder="Nome da nova aba"
+          aria-label="Nome da nova aba"
+        />
+        <div class="modal-buttons">
+          <button id="createTabBtn">Criar</button>
+          <button id="cancelCreateTabBtn" class="cancel">Cancelar</button>
+        </div>
+      </div>
+    </div>
+    <!-- Modal de confirmação de reset -->
+    <div class="modal hidden" id="confirmResetModal">
+      <div class="modal-content">
+        <h2>Tem certeza?</h2>
+        <p>Deseja apagar todas as tarefas desta aba?</p>
+        <div class="modal-buttons">
+          <button id="confirmResetBtn">Apagar</button>
+          <button class="cancel" id="cancelResetBtn">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
     <script src="script.js" defer></script>
   </body>
 </html>
